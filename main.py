@@ -15,10 +15,10 @@ def main() -> None:
     screen_height = 50
 
     tileset = tcod.tileset.load_tilesheet(
-        "dejavu10x10_gs_tc.png",
-        columns=32,
-        rows=8,
-        charmap=tcod.tileset.CHARMAP_TCOD,
+        "data/curses_12x12.png",
+        columns=16,
+        rows=16,
+        charmap=tcod.tileset.CHARMAP_CP437,
     )
 
     console = tcod.console.Console(screen_width, screen_height)
