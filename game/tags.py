@@ -1,10 +1,10 @@
 from typing import Final
 
-isPlayer: Final = "isPlayer"
+IsPlayer: Final = "isPlayer"
 """Entity is the player."""
 
-isActor: Final = "isActor"
+IsActor: Final = "isActor"
 """Entity is an actor."""
 
-isItem: Final = "isItem"
+IsItem: Final = "isItem"
 """Entity is an item."""

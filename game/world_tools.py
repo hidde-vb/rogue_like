@@ -3,7 +3,7 @@ from random import Random
 from tcod.ecs import Registry
 
 from game.components import Gold, Graphic, Position
-from game.tags import isActor, isItem, isPlayer
+from game.tags import IsActor, IsItem, IsPlayer
 
 
 def new_world() -> Registry:
@@ -15,7 +15,7 @@ def new_world() -> Registry:
     player.components[Position] = Position(5, 5)
     player.components[Graphic] = Graphic(ch=ord("@"))
     player.components[Gold] = 0
-    player.tags |= {isPlayer, isActor}
+    player.tags |= {IsPlayer, IsActor}
 
     for _ in range(10):
         x = rng.randint(0, 20)
@@ -24,6 +24,6 @@ def new_world() -> Registry:
         gold.components[Position] = Position(x, y)
         gold.components[Graphic] = Graphic(ch=ord("$"), fg=(255, 255, 0))
         gold.components[Gold] = rng.randint(1, 10)
-        gold.tags.add(isItem)
+        gold.tags.add(IsItem)
 
     return world
