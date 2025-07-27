@@ -4,15 +4,16 @@ import tcod.console
 import tcod.context
 import tcod.event
 import tcod.tileset
+
 import g
-from game.game_state import GameState
+import game.states
+import game.world_tools
 
 
 def main() -> None:
     screen_width = 80
     screen_height = 50
 
-    console = tcod.console.Console(screen_width, screen_height, order="F")
     tileset = tcod.tileset.load_tilesheet(
         "dejavu10x10_gs_tc.png",
         columns=32,
@@ -20,7 +21,9 @@ def main() -> None:
         charmap=tcod.tileset.CHARMAP_TCOD,
     )
 
-    state = GameState()
+    console = tcod.console.Console(screen_width, screen_height)
+    state = game.states.InGame()
+    g.world = game.world_tools.new_world()
 
     with tcod.context.new(
         console=console, tileset=tileset, title="rogue_like", vsync=True
@@ -31,7 +34,6 @@ def main() -> None:
             g.context.present(console)
 
             for event in tcod.event.wait():
-                print(event)
                 state.on_event(event)
 
 
