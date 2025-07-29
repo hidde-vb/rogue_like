@@ -36,6 +36,7 @@ class Graphic:
 
     ch: int = ord("!")
     fg: tuple[int, int, int] = (255, 255, 255)
+    bg: tuple[int, int, int] = (0, 0, 0)
 
 
 Gold: Final = ("Gold", int)
